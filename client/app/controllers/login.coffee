@@ -3,8 +3,8 @@
 LoginController = Ember.Controller.extend
   reset: ->
     @setProperties
-      username: '',
-      password: '',
+      username: ''
+      password: ''
       errorMessage: ''
 
   errorMessage: ''

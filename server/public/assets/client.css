@@ -6165,6 +6165,8 @@ button.close {
 }
 .spinner {
   text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .spinner > div {
   width: 18px;
@@ -6289,6 +6291,7 @@ h6,
   text-align: center;
   background-color: #f9f9f9;
   border-top: 1px solid #e5e5e5;
+  margin-top: 30px;
 }
 .homestead-footer p:last-child {
   margin-bottom: 0;
@@ -6314,4 +6317,10 @@ form.login:after {
 }
 .margin-top-less {
   margin-top: 0;
+}
+.toolbar {
+  margin-bottom: 15px;
+}
+textarea {
+  resize: vertical;
 }

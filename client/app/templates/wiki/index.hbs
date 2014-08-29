@@ -1,0 +1,9 @@
+<div class="toolbar">
+{{#link-to 'wiki.new' class="btn btn-primary"}}New Page{{/link-to}}
+</div>
+
+<div class="list-group margin-top">
+  {{#each}}
+  {{#link-to 'wiki.page' this._id class="list-group-item"}}{{title}}{{/link-to}}
+  {{/each}}
+</div>

@@ -1,7 +1,7 @@
-`import Ember from 'ember'`
-`import AuthRoute from '../routes/auth'`
+# `import Ember from 'ember'`
+# `import AuthRoute from '../routes/auth'`
 
-WikiNewRoute = AuthRoute.extend()
+# WikiNewRoute = AuthRoute.extend()
 
 
-`export default WikiNewRoute`
+# `export default WikiNewRoute`
