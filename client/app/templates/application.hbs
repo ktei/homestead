@@ -1,0 +1,78 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'index' class="navbar-brand"}}Homestead{{/link-to}}
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          {{#link-to 'wiki'}}Wiki{{/link-to}}
+        </li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {{#if isLoggedIn}}
+        <li>
+          <a href="#" {{action 'logout'}}>Log out</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<div class="container">
+  <div class="global-header">
+    <h1 class="title">{{appName}}</h1>
+    <p class="lead description">The official site of a programming nerd</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-9 main">
+      {{outlet}}
+    </div>
+    <div class="col-sm-3">
+      <div class="sidebar-module sidebar-module-inset">
+        <h4>About Me</h4>
+        <p>Hi, my name is Rui Cheng. You're now on my territory. This is my official
+          site, built on Node + Ember, both of which are great framework. I think you've
+          realized that I love programming so I built this simply for fun and sharing some of
+          my ideas, or part of my life... or whatever.</p>
+          <p>I'm currently a .NET developer working for an e-Conveyancing company, for which
+            you can find more in my resume.</p>
+            <p>Anyway, take a look around and have fun!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="homestead-footer">
+      <p>
+        Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by 
+        <a href="https://twitter.com/mdo">@mdo</a>.
+      </p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+  </div>
+</div>
+

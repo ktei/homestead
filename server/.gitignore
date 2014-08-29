@@ -1,0 +1,6 @@
+# binary
+/bin
+
+# dependencies
+/node_modules
+/vendor/*
