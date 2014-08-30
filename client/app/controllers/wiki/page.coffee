@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-WikiPageController = Ember.Controller.extend
+WikiPageController = Ember.ObjectController.extend
   isLoading: false
 
 `export default WikiPageController`

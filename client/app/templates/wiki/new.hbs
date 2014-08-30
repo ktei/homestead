@@ -1,20 +1,2 @@
 <h4>Create new page</h4>
-{{#if isSaving}}
-{{x-spinner}}
-{{/if}}
-<div class="toolbar clearfix">
-  <button class="btn btn-primary" {{action 'save'}} {{bind-attr disabled=isSaving}}>Save</button>
-  {{#link-to 'wiki.index' class="btn btn-warning pull-right" disabled=isSaving}}Discard{{/link-to}}
-</div>
-{{input value=title placeholder=titlePlaceholder class="form-control" disabled=isSaving}}
-<br>
-{{textarea value=text placeholder=textPlaceholder class="form-control" rows="10" autofocus="true" disabled=isSaving}}
-<hr>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Preview</h3>
-  </div>
-  <div class="panel-body">
-    {{format-markdown text}}
-  </div>
-</div>
+{{partial 'wiki/editor'}}
