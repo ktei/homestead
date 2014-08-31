@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var http = require('http');
-
 var routes = require('./routes');
 
 var app = express();
@@ -27,42 +26,61 @@ app.use(session({secret: 'km5jpVEi',
   resave: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// This needs to go fire before routes setup
+app.use(function(req, res, next) {
+  req.db = db;
+  next();
+});
+
 // Setup routes
 routes.setup(app);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
-/// error handlers
-
-// development error handler
-// will print stacktrace
+// Development error handler will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+  app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
-        message: err.message,
-        error: {}
+      message: err.message,
+      error: err
     });
+  });
+}
+
+// Production error handler no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
 });
 
-http.createServer(app).listen(app.get('port'), function() {
+// Database setup
+app.set('db_conn_str', 'mongodb://ktei:km5jpVEi@ds051368.mongolab.com:51368/homestead');
+// if (app.get('env') === 'development') {
+//   app.set('db_conn_str', 'mongodb://localhost:27017/homestead');
+// }
+
+var MongoClient = require('mongodb').MongoClient;
+var db;
+
+MongoClient.connect(app.get('db_conn_str'), function(err, database) {
+  if(err) {
+    throw err;
+  }
+  db = database;
+
+  // Start the application after the database connection is ready
+  http.createServer(app).listen(app.get('port'), function() {
     console.log("Express server listening on port " + app.get('port'));
+  });
 });
 
 module.exports = app;

@@ -1,14 +1,14 @@
 <h2>Login</h2>
-{{#if hasErrorMessage}}
-<div class="alert alert-danger" role="alert">
-  {{errorMessage}}
-</div>
-{{/if}}
-{{#if isLoggingIn}}
-{{x-spinner}}
-{{/if}}
 <div class="row">
   <div class="col-sm-8">
+    {{#if hasErrorMessage}}
+    <div class="alert alert-danger" role="alert">
+      {{errorMessage}}
+    </div>
+    {{/if}}
+    {{#if isLoggingIn}}
+    {{x-spinner}}
+    {{/if}}
     <form role="form" {{action 'login' on='submit'}} class="login">
       <div class="form-group">
         <label for="username">User name</label>
