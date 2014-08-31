@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var http = require('http');
+var mongoose = require('mongoose');
 var routes = require('./routes');
 
 var app = express();
@@ -64,19 +65,14 @@ app.use(function(err, req, res, next) {
 
 // Database setup
 app.set('db_conn_str', 'mongodb://ktei:km5jpVEi@ds051368.mongolab.com:51368/homestead');
-// if (app.get('env') === 'development') {
-//   app.set('db_conn_str', 'mongodb://localhost:27017/homestead');
-// }
-
-var MongoClient = require('mongodb').MongoClient;
-var db;
-
-MongoClient.connect(app.get('db_conn_str'), function(err, database) {
-  if(err) {
-    throw err;
-  }
-  db = database;
-
+if (app.get('env') === 'development') {
+  app.set('db_conn_str', 'mongodb://localhost:27017/homestead');
+}
+// Mongoose
+mongoose.connect(app.get('db_conn_str'));
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
   // Start the application after the database connection is ready
   http.createServer(app).listen(app.get('port'), function() {
     console.log("Express server listening on port " + app.get('port'));

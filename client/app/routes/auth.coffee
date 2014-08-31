@@ -1,7 +1,8 @@
 `import Ember from 'ember'`
+`import BaseRoute from './base'`
 `import Notify from 'ember-notify'`
 
-AuthRoute = Ember.Route.extend
+AuthRoute = BaseRoute.extend
   beforeModel: (transition) ->
     if @auth.get('isLoggedIn') isnt true
       @redirectToLogin transition

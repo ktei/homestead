@@ -6,5 +6,4 @@ WikiIndexRoute = AuthRoute.extend
   model: ->
     return ajax('/api/wiki/pages')
 
-
 `export default WikiIndexRoute`

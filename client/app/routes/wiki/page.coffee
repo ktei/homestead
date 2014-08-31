@@ -9,10 +9,6 @@ WikiPageRoute = AuthRoute.extend
       controller.set 'isLoading', false
 
   model: (params) -> 
-    return ajax('/api/wiki/pages/' + params.page_id)
-
-  serialize: (model) -> 
-    return { page_id: model._id }
-
+    return ajax('/api/wiki/pages/' + params.id)
 
 `export default WikiPageRoute`

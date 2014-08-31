@@ -6,9 +6,9 @@ Router.map(->
   @route 'resume'
   
   @resource 'wiki', ->
-    @route 'page', { path: '/:page_id' }
+    @route 'page', { path: '/:id' }
     @route 'new'
-    @route 'edit', { path: '/:page_id/edit' }
+    @route 'edit', { path: '/:id/edit' }
   
   @route 'login'
   @route 'notFound', { path: '404' }

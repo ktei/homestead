@@ -7,6 +7,11 @@ module.exports = {
       callback(req, res);
     });
   },
+  post: function(path, callback) {
+    router.post(path, restrict, function(req, res) {
+      callback(req, res);
+    })
+  },
   router: router
 }
 

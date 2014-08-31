@@ -1,25 +1,36 @@
 var restricted = require('./restricted');
 var ObjectId = require('mongodb').ObjectID;
+var WikiPage = require('../../models/wiki-page');
 
 // TODO: not sure how to do restrict in app.use(...)
 restricted.get('/pages', function(req, res) {
-  var collection = req.db.collection('wiki_pages');
-  collection.find({}, { title: true }).toArray(function(err, items) {
+  WikiPage.find(function(err, items) {
     res.json(items);
   });
 });
 
 restricted.get('/pages/:id', function(req, res) {
   var params = req.params;
-  var collection = req.db.collection('wiki_pages');
-  collection.findOne({ _id: new ObjectId(params.id) }, function(err, item) {
+  WikiPage.findById(params.id, function(err, item) {
     res.json(item);
   });
-  // res.json({
-  //   _id: params.id,
-  //   title: 'title ' + params.id,
-  //   text: '##text `class AuthRoute`' + params.id
-  // });
+});
+
+restricted.post('/pages', function(req, res) {
+  var params = {
+    id: req.body._id,
+    title: req.body.title,
+    body: req.body.body
+  };
+  if (params.id) {
+    WikiPage.findOneAndUpdate(params.id, params, function(err, item) {
+      res.json(item);
+    });
+  } else {
+    WikiPage.create(params, function(err, item) {
+      res.json(item);
+    });
+  }
 });
 
 module.exports = restricted.router;

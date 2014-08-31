@@ -1,7 +1,7 @@
 `import AuthRoute from '../auth'`
 
 WikiNewRoute = AuthRoute.extend
-  model: -> { _id: '', title: '', text: '' }
+  model: -> { title: '', body: '' }
 
 
 `export default WikiNewRoute`

@@ -1,11 +1,7 @@
 <h2>Login</h2>
 <div class="row">
   <div class="col-sm-8">
-    {{#if hasErrorMessage}}
-    <div class="alert alert-danger" role="alert">
-      {{errorMessage}}
-    </div>
-    {{/if}}
+    {{partial 'shared/error'}}
     {{#if isLoggingIn}}
     {{x-spinner}}
     {{/if}}

@@ -7,13 +7,13 @@
 </div>
 {{input value=title placeholder="Give a title" class="form-control" disabled=isSaving autofocus="true"}}
 <br>
-{{textarea value=text placeholder="Write some markdown..." class="form-control" rows="10" disabled=isSaving}}
+{{textarea value=body placeholder="Write some markdown..." class="form-control" rows="10" disabled=isSaving}}
 <hr>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Preview</h3>
   </div>
   <div class="panel-body">
-    {{format-markdown text}}
+    {{format-markdown body}}
   </div>
 </div>
