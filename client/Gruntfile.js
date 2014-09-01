@@ -10,8 +10,8 @@ module.exports = function(grunt) {
                 },
                 command: [
                     'ember build',
-                    'cp dist/index.html ../server/views/index.ejs',
-                    'cp -r dist/assets ../server/public'
+                    'cp dist/index.html ../views/index.ejs',
+                    'cp -r dist/assets ../public'
                 ].join('&&')
             }
         },
