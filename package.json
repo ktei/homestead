@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/.bin/supervisor app.js",
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "start": "node_modules/.bin/supervisor app.js"
   },
   "dependencies": {
     "express": "~4.2.0",
@@ -18,7 +17,6 @@
     "ejs": "*",
     "supervisor": "*",
     "mongodb": "*",
-    "mongoose": "^3.8.15",
-    "bower": "*"
+    "mongoose": "^3.8.15"
   }
 }
