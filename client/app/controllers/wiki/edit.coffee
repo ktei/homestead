@@ -7,10 +7,10 @@ WikiEditController = Ember.ObjectController.extend
     self = @
     isNew = !params._id
     Ember.$.post('/api/wiki/pages', params)
-      .success(->
+      .success((result) ->
         Notify.success 'Wiki page is saved successfully.'
         if isNew
-          self.transitionToRoute 'wiki.index'
+          self.transitionToRoute 'wiki.page', result._id
         else
           self.transitionToRoute 'wiki.page', self.get('model')
       )

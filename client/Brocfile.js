@@ -16,12 +16,18 @@ var app = new EmberApp();
 // modules that you would like to import into your application
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
-
-
 app.import('vendor/jquery.cookie/jquery.cookie.js');
 app.import('vendor/bootstrap/dist/js/bootstrap.min.js');
+
+// vex.js for dialog
+app.import('vendor/vex/js/vex.combined.min.js');
+app.import('vendor/vex/css/vex.css');
+app.import('vendor/vex/css/vex-theme-default.css');
+
+// showdown.js for markdown
 app.import('vendor/showdown/src/showdown.js');
 app.import('vendor/showdown/compressed/extensions/github.js');
 
 
 module.exports = app.toTree();
+

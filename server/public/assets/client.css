@@ -6315,11 +6315,11 @@ form.login:after {
 form.login:after {
   clear: both;
 }
-.margin-top-less {
-  margin-top: 0;
-}
 .toolbar {
   margin-bottom: 15px;
+}
+.toolbar .btn-margin-left {
+  margin-left: 10px;
 }
 textarea {
   resize: vertical;

@@ -1,5 +1,6 @@
 <div class="toolbar clearfix">
   {{#link-to 'wiki.index' class="btn btn-primary"}}&larr; All pages{{/link-to}}
+  <button class="btn btn-danger pull-right btn-margin-left" {{action remove}}>Delete</button>
   {{#link-to 'wiki.edit' model class="btn btn-default pull-right"}}Edit{{/link-to}}
 </div>
 {{#if isLoading}}

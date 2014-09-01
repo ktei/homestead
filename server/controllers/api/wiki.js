@@ -33,4 +33,10 @@ restricted.post('/pages', function(req, res) {
   }
 });
 
+restricted.post('/pages/:id/delete', function(req, res) {
+  WikiPage.remove({ _id: new ObjectId(req.params.id) }, function(err) {
+    res.json({ success: true });
+  });
+});
+
 module.exports = restricted.router;
