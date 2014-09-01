@@ -65,9 +65,9 @@ app.use(function(err, req, res, next) {
 
 // Database setup
 app.set('db_conn_str', 'mongodb://ktei:km5jpVEi@ds051368.mongolab.com:51368/homestead');
-if (app.get('env') === 'development') {
-  app.set('db_conn_str', 'mongodb://localhost:27017/homestead');
-}
+// if (app.get('env') === 'development') {
+//   app.set('db_conn_str', 'mongodb://localhost:27017/homestead');
+// }
 // Mongoose
 mongoose.connect(app.get('db_conn_str'));
 var db = mongoose.connection;
