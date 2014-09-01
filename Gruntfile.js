@@ -12,7 +12,9 @@ module.exports = function(grunt) {
                   'cd client',
                   'ember build --environment=production',
                   'cp dist/index.html ../views/index.ejs',
-                  'cp -r dist/assets ../public'
+                  'cp -r dist/assets ../public',
+                  'git add --all',
+                  'git commit -m "new deployment"'
                 ].join('&&')
               }
             }
@@ -22,6 +24,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['shell']);
+    grunt.registerTask('deploy', ['shell']);
 
   };
