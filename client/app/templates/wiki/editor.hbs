@@ -1,13 +1,15 @@
 {{#if isSaving}}
 {{x-spinner}}
 {{/if}}
-<div class="toolbar clearfix">
-  <button class="btn btn-primary" {{action save}} {{bind-attr disabled=isSaving}}>Save</button>
-  {{#link-to 'wiki.index' class="btn btn-warning pull-right" disabled=isSaving}}Discard{{/link-to}}
-</div>
-{{input value=title placeholder="Give a title" class="form-control" disabled=isSaving autofocus="true"}}
-<br>
-{{textarea value=body placeholder="Write some markdown..." class="form-control" rows="10" disabled=isSaving}}
+<form {{action save on='submit'}} class="has-validator">
+  <div class="toolbar clearfix">
+    <button class="btn btn-primary" type="submit" {{bind-attr disabled=isSaving}}>Save</button>
+    {{#link-to 'wiki.index' class="btn btn-warning pull-right" disabled=isSaving}}Discard{{/link-to}}
+  </div>
+  {{input value=title placeholder="Give a title" class="form-control" disabled=isSaving autofocus="true" required="true"}}
+  <br>
+  {{textarea value=body placeholder="Write some markdown..." class="form-control" rows="10" disabled=isSaving}}
+</form>
 <hr>
 <div class="panel panel-default">
   <div class="panel-heading">

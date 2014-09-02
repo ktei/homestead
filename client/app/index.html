@@ -22,6 +22,9 @@
   <script>
     window.Client = require('client/app')['default'].create(ClientENV.APP);
     vex.defaultOptions.className = 'vex-theme-default';
+    $(function() {
+      FastClick.attach(document.body);
+    });
   </script>
 </body>
 </html>

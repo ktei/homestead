@@ -17,7 +17,11 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 app.import('vendor/jquery.cookie/jquery.cookie.js');
+app.import('vendor/jquery-validation/dist/jquery.validate.min.js');
 app.import('vendor/bootstrap/dist/js/bootstrap.min.js');
+
+// fastclick
+app.import('vendor/fastclick/lib/fastclick.js');
 
 // vex.js for dialog
 app.import('vendor/vex/js/vex.combined.min.js');
@@ -30,4 +34,6 @@ app.import('vendor/showdown/compressed/extensions/github.js');
 
 
 module.exports = app.toTree();
+
+
 

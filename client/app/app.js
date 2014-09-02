@@ -15,6 +15,7 @@ Ember.View.reopen({
   didInsertElement : function(){
     this._super();
     Ember.run.scheduleOnce('afterRender', this, this.afterRenderEvent);
+    Ember.$(this.get('element')).find('form.has-validator').validate();
   },
   afterRenderEvent : function(){
     Ember.$('.has-tooltip').tooltip();
